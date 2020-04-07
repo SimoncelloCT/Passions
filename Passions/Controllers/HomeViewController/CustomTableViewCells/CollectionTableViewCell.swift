@@ -25,10 +25,19 @@ class CollectionTableViewCell: UITableViewCell, SSCVDataSource, SSCVSignalUpdate
         setProfileImageCornerRadius()
         
      }
+
+    override func prepareForReuse() {
+        horizontalCollectionView.resetStatus()
+    }
+    
+    public func setStatusTo(index i: Int){
+        horizontalCollectionView.setStatusTo(index: i)
+    }
      
      public func setCellContent(items: [Collection]){
         collectionViewItems = items
         setCellExternData(fromIndex: 0)
+        setStatusTo(index: 0)
      }
     
     private func setCellExternData(fromIndex i : Int){
@@ -65,4 +74,5 @@ class CollectionTableViewCell: UITableViewCell, SSCVDataSource, SSCVSignalUpdate
         ownerProfileImage.alpha = alpha
         ownerProfileNameLabel.alpha = alpha
     }
+    
 }

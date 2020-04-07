@@ -9,5 +9,5 @@
 import Foundation
 
 protocol UITableCellTargettingSubject {
-    var observer:  UITableCellTargettingObserver! { get set }
+    var targetObserver:  UITableCellTargettingObserver! { get set }
 }

@@ -161,8 +161,6 @@
 		9C3063462438AE7D00248216 /* Passions */ = {
 			isa = PBXGroup;
 			children = (
-				9C86A461243A92E700B7C5E1 /* UIVideoView */,
-				9C83BA81243A421F0016F124 /* SSCV */,
 				9C3063472438AE7D00248216 /* AppDelegate.swift */,
 				9C30639C2438BE6200248216 /* SceneDelegate.swift */,
 				9C30638C2438B2EB00248216 /* APIs */,
@@ -236,11 +234,14 @@
 		9C30639E2438C1E400248216 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9C8DDD98243CD8FF00D6C429 /* ProfileViewController */,
+				9C8DDD97243CD8EC00D6C429 /* SuggestionViewController */,
+				9C8DDD96243CD8DC00D6C429 /* PassionViewController */,
+				9C8DDD95243CD8C100D6C429 /* SearchViewController */,
+				9C8DDD93243CD82D00D6C429 /* SharedObjects */,
+				9C8DDD91243CD7F200D6C429 /* SharedProtocols */,
 				9C86A45E243A8F1F00B7C5E1 /* CreateContentViewController */,
 				9C51BFC82438C46700140068 /* HomeViewController */,
-				9CD9E801243BA04A006ADACE /* UIColorExtension.swift */,
-				9C8DDD8D243C938500D6C429 /* UITableCellTargettingSubject.swift */,
-				9C8DDD8F243C93A800D6C429 /* UITableCellTargettingObserver.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -248,8 +249,9 @@
 		9C51BFC82438C46700140068 /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
-				9C924CA9243A5A7F0017195F /* UISupportDataModels */,
 				9C30639F2438C1FC00248216 /* HomeViewController.swift */,
+				9C924CA9243A5A7F0017195F /* UISupportDataModels */,
+				9C51BFC92438C47300140068 /* CustomTableViewCells */,
 				9CAACF3F2438CA080066DD46 /* CustomCollectionViewsCells */,
 			);
 			path = HomeViewController;
@@ -291,6 +293,69 @@
 			path = UIVideoView;
 			sourceTree = "<group>";
 		};
+		9C8DDD91243CD7F200D6C429 /* SharedProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				9C8DDD92243CD7FD00D6C429 /* TableCellProtocols */,
+			);
+			path = SharedProtocols;
+			sourceTree = "<group>";
+		};
+		9C8DDD92243CD7FD00D6C429 /* TableCellProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				9C8DDD8D243C938500D6C429 /* UITableCellTargettingSubject.swift */,
+				9C8DDD8F243C93A800D6C429 /* UITableCellTargettingObserver.swift */,
+			);
+			path = TableCellProtocols;
+			sourceTree = "<group>";
+		};
+		9C8DDD93243CD82D00D6C429 /* SharedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				9C86A461243A92E700B7C5E1 /* UIVideoView */,
+				9C83BA81243A421F0016F124 /* SSCV */,
+				9C8DDD94243CD83400D6C429 /* Extensions */,
+			);
+			path = SharedObjects;
+			sourceTree = "<group>";
+		};
+		9C8DDD94243CD83400D6C429 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9CD9E801243BA04A006ADACE /* UIColorExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9C8DDD95243CD8C100D6C429 /* SearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SearchViewController;
+			sourceTree = "<group>";
+		};
+		9C8DDD96243CD8DC00D6C429 /* PassionViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PassionViewController;
+			sourceTree = "<group>";
+		};
+		9C8DDD97243CD8EC00D6C429 /* SuggestionViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SuggestionViewController;
+			sourceTree = "<group>";
+		};
+		9C8DDD98243CD8FF00D6C429 /* ProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ProfileViewController;
+			sourceTree = "<group>";
+		};
 		9C924CA9243A5A7F0017195F /* UISupportDataModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,7 +370,6 @@
 				9CAACF402438DC3C0066DD46 /* NewsCollectionViewCell.swift */,
 				9CAACF422438DC480066DD46 /* CollectionCollectionViewCell.swift */,
 				9CAACF442438DC550066DD46 /* CollectionContentCollectionViewCell.swift */,
-				9C51BFC92438C47300140068 /* CustomTableViewCells */,
 			);
 			path = CustomCollectionViewsCells;
 			sourceTree = "<group>";

@@ -18,11 +18,20 @@ class NewsTableViewCell: UITableViewCell, SSCVDataSource, SSCVSignalUpdateObserv
         horizontalCollectionView.dataSource = self
         horizontalCollectionView.signalObserver = self
         self.selectionStyle = .none
-        //setProfileImageCornerRadius()
     }
+    
+    override func prepareForReuse() {
+           horizontalCollectionView.resetStatus()
+    }
+       
+    public func setStatusTo(index i: Int){
+        horizontalCollectionView.setStatusTo(index: i)
+    }
+        
 
     public func setCellContent(items: [UIImage]){
         collectionViewItems = items
+        setStatusTo(index: 0)
     }
    
     func alphaChanged(alpha: CGFloat) {

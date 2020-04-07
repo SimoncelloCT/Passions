@@ -10,8 +10,7 @@ import UIKit
 
 class CollectionContentTableViewCell: UITableViewCell, SSCVDataSource, SSCVSignalUpdateObserver, UITableCellTargettingSubject {
     
-    var observer: UITableCellTargettingObserver!
-    @IBOutlet weak var buttonLinkStackView: UIStackView!
+    var targetObserver: UITableCellTargettingObserver!
     var collectionData : Collection!
     @IBOutlet weak var horizontalCollectionView : SSCollectionView!
     @IBOutlet weak var collectionPassionNameLabel: UILabel!
@@ -44,7 +43,6 @@ class CollectionContentTableViewCell: UITableViewCell, SSCVDataSource, SSCVSigna
         }
     }
     
-
     override func awakeFromNib() {
         horizontalCollectionView.setup(cellPeekWidth: 70, cellSpacing: 0, scaleValue: 1.2)
         horizontalCollectionView.dataSource = self
@@ -74,7 +72,7 @@ class CollectionContentTableViewCell: UITableViewCell, SSCVDataSource, SSCVSigna
         setContentExternData(forIndex: targetIndex, animated: true, async: true)
         stopVideoOnCell(atIndex: previousTargetIndex)
         requestPlayVideoOnCell(atIndex: targetIndex)
-        if let o = observer{
+        if let o = targetObserver{
             o.tableCell(cell: self, targetChanged: targetIndex)
         }
     }
@@ -100,7 +98,7 @@ class CollectionContentTableViewCell: UITableViewCell, SSCVDataSource, SSCVSigna
                 self.setContentExternDataForEmptyCollection()
             }
         }
-        observer = targetObserver
+        targetObserver = targetObserver
     }
     
     private func setButtonsLayout(){
@@ -116,7 +114,7 @@ class CollectionContentTableViewCell: UITableViewCell, SSCVDataSource, SSCVSigna
        
     
     private func setContentExternDataForEmptyCollection(){
-        
+        print("empty collection")
     }
     
     private func setPassionLabelBackground(backgroundColor: UIColor ){
@@ -154,12 +152,10 @@ class CollectionContentTableViewCell: UITableViewCell, SSCVDataSource, SSCVSigna
     private func hideButtons(){
         firstActionButton.isHidden = true
         secondActionButton.isHidden = true
-        self.layoutSubviews()
     }
     private func showButtons(){
         firstActionButton.isHidden = false
         secondActionButton.isHidden = false
-        self.layoutSubviews()
     }
     
     private func setContentExternData(forIndex index: Int, animated flag: Bool){
