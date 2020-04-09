@@ -9,5 +9,12 @@
 import Foundation
 
 class Comment{
+    var message: String!
+    var ownerProfile : Profile!
+    
+    init(message: String, ownerProfile: Profile) {
+        self.message = message
+        self.ownerProfile = ownerProfile
+    }
     
 }

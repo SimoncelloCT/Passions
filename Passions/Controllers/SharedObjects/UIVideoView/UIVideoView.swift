@@ -25,7 +25,9 @@ class UIVideoView: UIView  {
     }
     
     func configure(url: String) {
+        print("configure")
         if let videoURL = URL(string: url) {
+            print("url ok")
             player = AVPlayer(url: videoURL)
             playerLayer = AVPlayerLayer(player: player)
             playerLayer?.frame = bounds
@@ -38,7 +40,14 @@ class UIVideoView: UIView  {
         }
     }
     
+    override func removeFromSuperview() {
+        print("remove")
+        self.player = nil
+        self.playerLayer = nil
+    }
+    
     func play() {
+        print("play")
         if player?.timeControlStatus != AVPlayer.TimeControlStatus.playing {
             player?.play()
         }
@@ -59,5 +68,9 @@ class UIVideoView: UIView  {
             player?.seek(to: CMTime.zero)
             player?.play()
         }
+    }
+    
+    deinit {
+        print("videoView deinit")
     }
 }

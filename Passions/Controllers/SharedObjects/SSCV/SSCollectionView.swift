@@ -16,8 +16,10 @@ class SSCollectionView: UIView, UICollectionViewDelegate, UIScrollViewDelegate ,
     private var windowSize : CGFloat!
     private var lastCenteredTargetIndex : Int!
     private var previousCenteredTargetIndex :Int!
-    public var dataSource : SSCVDataSource!
-    public var signalObserver : SSCVSignalUpdateObserver!
+    public weak var dataSource : SSCVDataSource!
+    public weak var signalObserver : SSCVSignalUpdateObserver!
+    private var lastRadius : CGFloat = 10.0
+    private var defaultRadius :CGFloat = 10.0
     
     var behavior = MSCollectionViewPeekingBehavior()
     func setup(cellPeekWidth: CGFloat, cellSpacing: CGFloat , scaleValue : CGFloat) {
@@ -28,15 +30,18 @@ class SSCollectionView: UIView, UICollectionViewDelegate, UIScrollViewDelegate ,
         cv.dataSource = self
     }
     
-    func setStatusTo(index: Int){
+    func setStatusTo(index: Int, animated : Bool = false){
         let signalOb = signalObserver
         signalObserver = nil //do not notify for this scroll
-        behavior.scrollToItem(at: index, animated: false)
+        behavior.scrollToItem(at: index, animated: animated)
         setNeedsDisplay()
         signalObserver = signalOb
-        
-        
     }
+    
+    func getDefaultRadius()-> CGFloat{
+        return defaultRadius
+    }
+    
     func resetStatus(){
         let signalOb = signalObserver
         signalObserver = nil //do not notify for this scroll
@@ -56,7 +61,13 @@ class SSCollectionView: UIView, UICollectionViewDelegate, UIScrollViewDelegate ,
        
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let ds = dataSource{
-           return ds.SSCV(collectionView, cellForItemAt: indexPath)
+            let cell = ds.SSCV(collectionView, cellForItemAt: indexPath)
+            if let c = cell as? CollectionContentCollectionViewCell{
+                if lastRadius != defaultRadius {
+                    c.setCornerRadius(radius: lastRadius)
+                }
+            }
+           return cell
         }
         return UICollectionViewCell()
     }
@@ -90,6 +101,18 @@ class SSCollectionView: UIView, UICollectionViewDelegate, UIScrollViewDelegate ,
             return cv.frame.size.width
         }
     }
+    
+    public func updateCellsCornerRadius(radius r :CGFloat){
+        lastRadius = r
+        if lastRadius != defaultRadius {
+            for cell in cv.visibleCells {
+                    if let c = cell as? CollectionContentCollectionViewCell{
+                    c.setCornerRadius(radius: r)
+                }
+            }
+        }
+    }
+    
        private func getCurrentCenteredTargetCell() -> UICollectionViewCell{
            let centerX = cv.contentOffset.x + (cv.frame.size.width)/2
            var minOffset : CGFloat = CGFloat.greatestFiniteMagnitude

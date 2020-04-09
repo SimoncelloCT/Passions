@@ -9,8 +9,9 @@
 import Foundation
 import UIKit
 
-protocol SSCVDataSource {
+protocol SSCVDataSource : class {
     func SSCV(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     
-    func SSCV(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
+    func SSCV(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell    
 }
+

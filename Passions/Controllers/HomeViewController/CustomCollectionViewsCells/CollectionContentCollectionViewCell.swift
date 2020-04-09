@@ -27,7 +27,7 @@ class CollectionContentCollectionViewCell: UICollectionViewCell {
             setCellForVideoContent()
         }
     }
-    
+   
     private func setCellForImageContent(){
         mediaView = UIImageView()
         self.contentView.addSubview(mediaView)
@@ -58,6 +58,13 @@ class CollectionContentCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    public func pauseVideo(){
+        print("pause")
+        if let videoView  = mediaView as? UIVideoView{
+            videoView.pause()
+        }
+    }
+    
     private func setCellForVideoContent(){
         self.mediaView = UIVideoView.init()
         self.contentView.addSubview(self.mediaView)
@@ -82,9 +89,12 @@ class CollectionContentCollectionViewCell: UICollectionViewCell {
         self.video = video
         setNeedsDisplay()
     }
-    private func setCornerRadius(radius : CGFloat = 10.0){
+    public func setCornerRadius(radius : CGFloat = 10.0){
+        self.layer.cornerRadius = radius
         self.clipsToBounds = true
-        self.layer.cornerRadius = 10.0
         self.layer.masksToBounds = true
+    }
+    deinit {
+        print("deinit Collection cell")
     }
 }

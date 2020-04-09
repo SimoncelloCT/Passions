@@ -40,6 +40,7 @@
 		9C3063942438B42D00248216 /* ExternalAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3063932438B42C00248216 /* ExternalAPI.swift */; };
 		9C30639D2438BE6300248216 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C30639C2438BE6200248216 /* SceneDelegate.swift */; };
 		9C3063A02438C1FC00248216 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C30639F2438C1FC00248216 /* HomeViewController.swift */; };
+		9C310C9C243CEF6100C46CEC /* CollectionContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C310C9B243CEF6100C46CEC /* CollectionContentViewController.swift */; };
 		9C51BFCB2438C49300140068 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C51BFCA2438C49300140068 /* NewsTableViewCell.swift */; };
 		9C51BFCD2438C4A700140068 /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C51BFCC2438C4A700140068 /* CollectionTableViewCell.swift */; };
 		9C51BFCF2438C4CC00140068 /* CollectionContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C51BFCE2438C4CC00140068 /* CollectionContentTableViewCell.swift */; };
@@ -47,6 +48,15 @@
 		9C83BA7C243A3D210016F124 /* SSCVSignalUpdateObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C83BA7B243A3D210016F124 /* SSCVSignalUpdateObserver.swift */; };
 		9C83BA80243A3EA80016F124 /* SSCVDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C83BA7F243A3EA80016F124 /* SSCVDataSource.swift */; };
 		9C86A460243A8F3700B7C5E1 /* CreateContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86A45F243A8F3700B7C5E1 /* CreateContentViewController.swift */; };
+		9C888A0B243F4CB700946523 /* CustomTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C888A0A243F4CB700946523 /* CustomTabViewController.swift */; };
+		9C888A0D243F4ED000946523 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C888A0C243F4ED000946523 /* UIViewExtension.swift */; };
+		9C888A13243F636700946523 /* SSTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C888A12243F636700946523 /* SSTextView.swift */; };
+		9C888A15243F676400946523 /* SSTextViewObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C888A14243F676400946523 /* SSTextViewObserver.swift */; };
+		9C88E213243DECFC0048C505 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C88E212243DECFC0048C505 /* CommentTableViewCell.swift */; };
+		9C88E216243DED170048C505 /* ContentMetadataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C88E215243DED170048C505 /* ContentMetadataTableViewCell.swift */; };
+		9C88E218243E10C90048C505 /* CollectionContentGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C88E217243E10C90048C505 /* CollectionContentGestureRecognizer.swift */; };
+		9C88E21A243E187F0048C505 /* CollectionContentGestureRecognizerAnimationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C88E219243E187F0048C505 /* CollectionContentGestureRecognizerAnimationObserver.swift */; };
+		9C88E21C243E18940048C505 /* CollectionContentGestureRecognizerAnimationSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C88E21B243E18940048C505 /* CollectionContentGestureRecognizerAnimationSubject.swift */; };
 		9C8DDD8E243C938500D6C429 /* UITableCellTargettingSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DDD8D243C938500D6C429 /* UITableCellTargettingSubject.swift */; };
 		9C8DDD90243C93A800D6C429 /* UITableCellTargettingObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DDD8F243C93A800D6C429 /* UITableCellTargettingObserver.swift */; };
 		9CAACF3E2438C58D0066DD46 /* HomeTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAACF3D2438C58D0066DD46 /* HomeTableSection.swift */; };
@@ -97,6 +107,7 @@
 		9C3063962438B88E00248216 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		9C30639C2438BE6200248216 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9C30639F2438C1FC00248216 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9C310C9B243CEF6100C46CEC /* CollectionContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionContentViewController.swift; sourceTree = "<group>"; };
 		9C51BFCA2438C49300140068 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		9C51BFCC2438C4A700140068 /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewCell.swift; sourceTree = "<group>"; };
 		9C51BFCE2438C4CC00140068 /* CollectionContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionContentTableViewCell.swift; sourceTree = "<group>"; };
@@ -104,6 +115,15 @@
 		9C83BA7B243A3D210016F124 /* SSCVSignalUpdateObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCVSignalUpdateObserver.swift; sourceTree = "<group>"; };
 		9C83BA7F243A3EA80016F124 /* SSCVDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCVDataSource.swift; sourceTree = "<group>"; };
 		9C86A45F243A8F3700B7C5E1 /* CreateContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContentViewController.swift; sourceTree = "<group>"; };
+		9C888A0A243F4CB700946523 /* CustomTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabViewController.swift; sourceTree = "<group>"; };
+		9C888A0C243F4ED000946523 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		9C888A12243F636700946523 /* SSTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSTextView.swift; sourceTree = "<group>"; };
+		9C888A14243F676400946523 /* SSTextViewObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSTextViewObserver.swift; sourceTree = "<group>"; };
+		9C88E212243DECFC0048C505 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		9C88E215243DED170048C505 /* ContentMetadataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentMetadataTableViewCell.swift; sourceTree = "<group>"; };
+		9C88E217243E10C90048C505 /* CollectionContentGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionContentGestureRecognizer.swift; sourceTree = "<group>"; };
+		9C88E219243E187F0048C505 /* CollectionContentGestureRecognizerAnimationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionContentGestureRecognizerAnimationObserver.swift; sourceTree = "<group>"; };
+		9C88E21B243E18940048C505 /* CollectionContentGestureRecognizerAnimationSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionContentGestureRecognizerAnimationSubject.swift; sourceTree = "<group>"; };
 		9C8DDD8D243C938500D6C429 /* UITableCellTargettingSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableCellTargettingSubject.swift; sourceTree = "<group>"; };
 		9C8DDD8F243C93A800D6C429 /* UITableCellTargettingObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableCellTargettingObserver.swift; sourceTree = "<group>"; };
 		9CAACF3D2438C58D0066DD46 /* HomeTableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableSection.swift; sourceTree = "<group>"; };
@@ -234,6 +254,7 @@
 		9C30639E2438C1E400248216 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9C310C9A243CEF4B00C46CEC /* CollectionContentViewController */,
 				9C8DDD98243CD8FF00D6C429 /* ProfileViewController */,
 				9C8DDD97243CD8EC00D6C429 /* SuggestionViewController */,
 				9C8DDD96243CD8DC00D6C429 /* PassionViewController */,
@@ -242,8 +263,19 @@
 				9C8DDD91243CD7F200D6C429 /* SharedProtocols */,
 				9C86A45E243A8F1F00B7C5E1 /* CreateContentViewController */,
 				9C51BFC82438C46700140068 /* HomeViewController */,
+				9C888A0A243F4CB700946523 /* CustomTabViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9C310C9A243CEF4B00C46CEC /* CollectionContentViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9C310C9B243CEF6100C46CEC /* CollectionContentViewController.swift */,
+				9C888A0F243F629400946523 /* gestureRecognizer */,
+				9C88E211243DECD60048C505 /* CustomsTableViewCell */,
+			);
+			path = CollectionContentViewController;
 			sourceTree = "<group>";
 		};
 		9C51BFC82438C46700140068 /* HomeViewController */ = {
@@ -293,6 +325,42 @@
 			path = UIVideoView;
 			sourceTree = "<group>";
 		};
+		9C888A0E243F628900946523 /* protocols */ = {
+			isa = PBXGroup;
+			children = (
+				9C88E219243E187F0048C505 /* CollectionContentGestureRecognizerAnimationObserver.swift */,
+				9C88E21B243E18940048C505 /* CollectionContentGestureRecognizerAnimationSubject.swift */,
+			);
+			path = protocols;
+			sourceTree = "<group>";
+		};
+		9C888A0F243F629400946523 /* gestureRecognizer */ = {
+			isa = PBXGroup;
+			children = (
+				9C88E217243E10C90048C505 /* CollectionContentGestureRecognizer.swift */,
+				9C888A0E243F628900946523 /* protocols */,
+			);
+			path = gestureRecognizer;
+			sourceTree = "<group>";
+		};
+		9C888A11243F62AF00946523 /* SSTextView */ = {
+			isa = PBXGroup;
+			children = (
+				9C888A12243F636700946523 /* SSTextView.swift */,
+				9C888A14243F676400946523 /* SSTextViewObserver.swift */,
+			);
+			path = SSTextView;
+			sourceTree = "<group>";
+		};
+		9C88E211243DECD60048C505 /* CustomsTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				9C88E212243DECFC0048C505 /* CommentTableViewCell.swift */,
+				9C88E215243DED170048C505 /* ContentMetadataTableViewCell.swift */,
+			);
+			path = CustomsTableViewCell;
+			sourceTree = "<group>";
+		};
 		9C8DDD91243CD7F200D6C429 /* SharedProtocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,6 +381,7 @@
 		9C8DDD93243CD82D00D6C429 /* SharedObjects */ = {
 			isa = PBXGroup;
 			children = (
+				9C888A11243F62AF00946523 /* SSTextView */,
 				9C86A461243A92E700B7C5E1 /* UIVideoView */,
 				9C83BA81243A421F0016F124 /* SSCV */,
 				9C8DDD94243CD83400D6C429 /* Extensions */,
@@ -324,6 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				9CD9E801243BA04A006ADACE /* UIColorExtension.swift */,
+				9C888A0C243F4ED000946523 /* UIViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -500,6 +570,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C88E21A243E187F0048C505 /* CollectionContentGestureRecognizerAnimationObserver.swift in Sources */,
 				9C3063922438B42100248216 /* ExternalAPIWrapper.swift in Sources */,
 				9C83BA80243A3EA80016F124 /* SSCVDataSource.swift in Sources */,
 				9C30637B2438B0ED00248216 /* SongObject.swift in Sources */,
@@ -509,6 +580,7 @@
 				9C30636D2438B09000248216 /* Video.swift in Sources */,
 				9C51BFCF2438C4CC00140068 /* CollectionContentTableViewCell.swift in Sources */,
 				9C3063A02438C1FC00248216 /* HomeViewController.swift in Sources */,
+				9C88E21C243E18940048C505 /* CollectionContentGestureRecognizerAnimationSubject.swift in Sources */,
 				9C3063792438B0E200248216 /* StoryObject.swift in Sources */,
 				9C83BA7C243A3D210016F124 /* SSCVSignalUpdateObserver.swift in Sources */,
 				9C3063902438B32400248216 /* BackendAPI.swift in Sources */,
@@ -517,21 +589,29 @@
 				9C3063612438B04000248216 /* User.swift in Sources */,
 				9C30636F2438B0A500248216 /* ContentObject.swift in Sources */,
 				9C30635D2438B02400248216 /* Profile.swift in Sources */,
+				9C888A13243F636700946523 /* SSTextView.swift in Sources */,
+				9C888A15243F676400946523 /* SSTextViewObserver.swift in Sources */,
 				9C30639D2438BE6300248216 /* SceneDelegate.swift in Sources */,
 				9CAACF3E2438C58D0066DD46 /* HomeTableSection.swift in Sources */,
 				9CD9E802243BA04A006ADACE /* UIColorExtension.swift in Sources */,
+				9C888A0D243F4ED000946523 /* UIViewExtension.swift in Sources */,
 				9C8DDD90243C93A800D6C429 /* UITableCellTargettingObserver.swift in Sources */,
 				9C51BFCD2438C4A700140068 /* CollectionTableViewCell.swift in Sources */,
+				9C88E218243E10C90048C505 /* CollectionContentGestureRecognizer.swift in Sources */,
 				9C3063692438B07A00248216 /* Media.swift in Sources */,
 				9C3063482438AE7D00248216 /* AppDelegate.swift in Sources */,
 				9C3063942438B42D00248216 /* ExternalAPI.swift in Sources */,
 				9C30637D2438B0F700248216 /* MovieObject.swift in Sources */,
+				9C310C9C243CEF6100C46CEC /* CollectionContentViewController.swift in Sources */,
 				9C51BFCB2438C49300140068 /* NewsTableViewCell.swift in Sources */,
+				9C88E216243DED170048C505 /* ContentMetadataTableViewCell.swift in Sources */,
 				9C83BA76243A2A110016F124 /* SSCollectionView.swift in Sources */,
 				9C3063632438B04E00248216 /* Collection.swift in Sources */,
 				9C3063772438B0D400248216 /* SBSObject.swift in Sources */,
 				9C3063752438B0C900248216 /* VideoObject.swift in Sources */,
 				9CE0D66A243A75430082889A /* UIVideoView.swift in Sources */,
+				9C888A0B243F4CB700946523 /* CustomTabViewController.swift in Sources */,
+				9C88E213243DECFC0048C505 /* CommentTableViewCell.swift in Sources */,
 				9C3063852438B12E00248216 /* WebsiteObject.swift in Sources */,
 				9C30637F2438B10400248216 /* TVSerieObject.swift in Sources */,
 				9C3063652438B05800248216 /* ShareObject.swift in Sources */,

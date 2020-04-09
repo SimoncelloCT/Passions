@@ -18,20 +18,21 @@ class CollectionTableViewCell: UITableViewCell, SSCVDataSource, SSCVSignalUpdate
     @IBOutlet weak var ownerProfileImage: UIImageView!
     
      override func awakeFromNib() {
-        horizontalCollectionView.setup(cellPeekWidth: 90, cellSpacing: 15, scaleValue: 2.0)
+        horizontalCollectionView.setup(cellPeekWidth: 110, cellSpacing: 15, scaleValue: 2.0)
         horizontalCollectionView.dataSource = self
         horizontalCollectionView.signalObserver = self
         self.selectionStyle = .none
         setProfileImageCornerRadius()
+        //self.horizontalCollectionView.setTransform()
         
      }
 
     override func prepareForReuse() {
-        horizontalCollectionView.resetStatus()
+        //horizontalCollectionView.resetStatus()
     }
     
     public func setStatusTo(index i: Int){
-        horizontalCollectionView.setStatusTo(index: i)
+        //horizontalCollectionView.setStatusTo(index: i)
     }
      
      public func setCellContent(items: [Collection]){

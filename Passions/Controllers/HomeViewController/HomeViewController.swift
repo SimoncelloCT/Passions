@@ -27,14 +27,16 @@ class HomeViewController: UITableViewController, UITableCellTargettingObserver {
         tableItems.append(HomeTableSection.init(name: "Novità", items: news))
         tableItems.append(HomeTableSection.init(name: "Per te", items: dataForMe))
         tableItems.append(HomeTableSection.init(name: "Contenuti recenti", items: dataRecent))
-        
-       
         tableView.reloadData()
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableView.automaticDimension
-        //setupFirstTargetCell()
-        
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        enableVideoPlayers()
+    }
+    
     func tableCell(cell: UITableViewCell, targetChanged toIndex: Int) {
         if let ip = tableView.indexPath(for: cell) {
             //save new target
@@ -42,18 +44,13 @@ class HomeViewController: UITableViewController, UITableCellTargettingObserver {
         }
     }
     
-    private func setupFirstTargetCell(){
-            targetCell = IndexPath.init(row: 0, section: 0)
-            previousTargetCell = targetCell
-            //tableView.scrollToRow(at: targetCell, at: .top, animated: false)
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupDesign()
+        setupNavigationBarDesign()
+        //enableVideoPlayers()
     }
     
-    private func setupDesign(){
+    private func setupNavigationBarDesign(){
          navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
@@ -71,7 +68,6 @@ class HomeViewController: UITableViewController, UITableCellTargettingObserver {
             c.canPlayVideo(setTo: true)
         }
     }
-    
   
     private func targetCellChanged(newTargetCell indexPath: IndexPath?, previousTargetCell prevIndexPath: IndexPath? ){
         disableVideoPlayerOnCell(atIndexPath: prevIndexPath)
@@ -102,21 +98,18 @@ class HomeViewController: UITableViewController, UITableCellTargettingObserver {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0{ //NewsCell
             let cell = tableView.dequeueReusableCell(withIdentifier: "newsTableViewCell") as! NewsTableViewCell
-            //cast each object items[indexPath.section].sectionItems to News
             cell.setCellContent(items: tableItems[indexPath.section].sectionItems as! [UIImage])
             return cell
         }
         else if indexPath.section == 1 { //CollectionCell
             let cell = tableView.dequeueReusableCell(withIdentifier: "collectionTableViewCell") as! CollectionTableViewCell
-            //cast each object items[indexPath.section].sectionItems to Collection
-            //print(tableItems[indexPath.section].sectionItems.count)
              cell.setCellContent(items: tableItems[indexPath.section].sectionItems as! [Collection])
             return cell
         }
         else{ //CollectionContentCell
             let cell = tableView.dequeueReusableCell(withIdentifier: "collectionContentTableViewCell") as! CollectionContentTableViewCell
-            cell.setCellContent(collection: self.tableItems[indexPath.section].sectionItems[indexPath.row] as! Collection, lastTargetCellIndex: self.tableItems[indexPath.section].lastTargetIndices[indexPath.row], targetObserver: self)
-            
+            let tableItem = self.tableItems[indexPath.section]
+            cell.setCellContent(collection: tableItem.sectionItems[indexPath.row] as! Collection, lastTargetCellIndex: tableItem.lastTargetIndices[indexPath.row], targetObserver: self, superViewController: self)
             return cell
         }
     }
@@ -142,7 +135,6 @@ class HomeViewController: UITableViewController, UITableCellTargettingObserver {
         }
         return tableItems[section].sectionItems.count
     }
-
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 70
@@ -163,6 +155,24 @@ class HomeViewController: UITableViewController, UITableCellTargettingObserver {
         return sectionTitleLabel
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.disableVideoPlayers()
+    }
+    private func disableVideoPlayers(){
+        guard let target = targetCell else{return}
+        if let cell = tableView.cellForRow(at: target) as? CollectionContentTableViewCell{
+            cell.canPlayVideo(setTo: false)
+        }
+    }
+    private func enableVideoPlayers(){
+        guard let target = targetCell else{return}
+        if let cell = tableView.cellForRow(at: target) as? CollectionContentTableViewCell{
+            cell.canPlayVideo(setTo: true)
+        }
+    }
     
     
+    
+
 }

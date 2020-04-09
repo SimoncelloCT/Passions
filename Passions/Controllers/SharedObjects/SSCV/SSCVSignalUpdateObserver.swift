@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol SSCVSignalUpdateObserver {
+protocol SSCVSignalUpdateObserver : class {
     func alphaChanged(alpha :CGFloat)
     func targetIndexChanged(targetIndex: Int, previousTargetIndex : Int)
 }

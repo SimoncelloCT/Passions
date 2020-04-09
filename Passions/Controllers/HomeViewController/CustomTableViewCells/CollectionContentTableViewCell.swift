@@ -12,6 +12,8 @@ class CollectionContentTableViewCell: UITableViewCell, SSCVDataSource, SSCVSigna
     
     var targetObserver: UITableCellTargettingObserver!
     var collectionData : Collection!
+    var superViewController: UIViewController!
+    @IBOutlet weak var itemPageControl: UIPageControl!
     @IBOutlet weak var horizontalCollectionView : SSCollectionView!
     @IBOutlet weak var collectionPassionNameLabel: UILabel!
     @IBOutlet weak var secondActionButton: UIButton!
@@ -26,8 +28,15 @@ class CollectionContentTableViewCell: UITableViewCell, SSCVDataSource, SSCVSigna
    
     public func canPlayVideo(setTo flag: Bool){
         canPlayVideo = flag
-        if flag{ requestPlayVideoOnCell(atIndex: targetIndex) }
-        else{ stopVideoOnCell(atIndex: targetIndex) }
+        if flag{
+            print("enableVideo")
+            requestPlayVideoOnCell(atIndex: targetIndex) }
+        else{
+            print("disableVideo")
+            //stopVideoOnCell(atIndex: targetIndex) }
+            pauseVideoOnCell(atIndex: targetIndex)
+        }
+            
     }
     
     private func requestPlayVideoOnCell(atIndex i: Int){
@@ -43,12 +52,45 @@ class CollectionContentTableViewCell: UITableViewCell, SSCVDataSource, SSCVSigna
         }
     }
     
+    private func pauseVideoOnCell(atIndex i: Int){
+        let cell = horizontalCollectionView.getCell(forIndex: i)
+        if let c = cell as? CollectionContentCollectionViewCell{
+            c.pauseVideo()
+        }
+    }
+    
     override func awakeFromNib() {
-        horizontalCollectionView.setup(cellPeekWidth: 70, cellSpacing: 0, scaleValue: 1.2)
+        horizontalCollectionView.setup(cellPeekWidth: 0, cellSpacing: 40, scaleValue: 10.0)
         horizontalCollectionView.dataSource = self
         horizontalCollectionView.signalObserver = self
         setLayout()
+        setOnclickListenerForCollectionView()
      }
+    
+    private func setOnclickListenerForCollectionView(){
+        let onclickListener = UITapGestureRecognizer(target: self, action:  #selector (self.contentClicked(_:)))
+        horizontalCollectionView.addGestureRecognizer(onclickListener)
+    }
+    
+    @objc func contentClicked(_ sender:UITapGestureRecognizer){
+        if let parentController = superViewController{
+            let contentController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "collectionContentViewController") as! CollectionContentViewController
+            parentController.navigationController?.pushViewController(contentController, animated: true)
+            contentController.setup(collection: collectionData, withInitialTarget: targetIndex, withZoomAnimation: false)
+        }
+        
+    }
+    
+    
+    
+    /*private func getSuperController() -> UIViewController?{
+        if let parent = self.superview as? UITableView{
+            if let parentController = parent.parent as? UIViewController{
+                return parentController
+            }
+        }
+        return nil
+    }*/
     
     private func setLayout(){
         self.selectionStyle = .none
@@ -56,6 +98,9 @@ class CollectionContentTableViewCell: UITableViewCell, SSCVDataSource, SSCVSigna
         contentDescriptionTextView.isScrollEnabled = false
         setOwnerProfileNameLabelLayout()
         setButtonsLayout()
+        
+        //self.horizontalCollectionView.setTransform()
+        
     }
     
    
@@ -79,15 +124,19 @@ class CollectionContentTableViewCell: UITableViewCell, SSCVDataSource, SSCVSigna
   
     override func prepareForReuse() {
         horizontalCollectionView.resetStatus()
+        self.canPlayVideo(setTo: false)
     }
     
     public func setStatusTo(index i: Int){
         updateTargetIndex(index: i)
         horizontalCollectionView.setStatusTo(index: i)
+        itemPageControl.currentPage = i
     }
      
-    public func setCellContent(collection: Collection, lastTargetCellIndex i: Int?, targetObserver: UITableCellTargettingObserver){
+    public func setCellContent(collection: Collection, lastTargetCellIndex i: Int?, targetObserver: UITableCellTargettingObserver, superViewController: UIViewController){
+        self.superViewController = superViewController
         collectionData = collection
+        itemPageControl.numberOfPages = collection.items.count
         setCollectionHeaderData()
         if let index = i{
             setStatusTo(index: index)
@@ -98,7 +147,7 @@ class CollectionContentTableViewCell: UITableViewCell, SSCVDataSource, SSCVSigna
                 self.setContentExternDataForEmptyCollection()
             }
         }
-        targetObserver = targetObserver
+        self.targetObserver = targetObserver
     }
     
     private func setButtonsLayout(){
@@ -163,6 +212,7 @@ class CollectionContentTableViewCell: UITableViewCell, SSCVDataSource, SSCVSigna
         self.contentDescriptionTextView.text = collectionItem.description
         self.contentTypeLabel.text = collectionItem.getContentTypeName()
         self.contentTypeLabel.textColor = UIColor.contentTypeNameOnBlack
+        self.itemPageControl.currentPage = index
         if let _ = collectionItem as? SuggestionObject{ showButtons() }
         else{ hideButtons() }
         if flag{ requestDrawTableAnimation() }

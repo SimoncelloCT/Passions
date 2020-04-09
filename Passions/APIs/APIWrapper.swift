@@ -41,13 +41,26 @@ class APIWrapper {
         var objArray = [ShareObject]()
         
         objArray.append(PhotoObject.init(photo: UIImage.init(named: "classea_1")!, description: "Bella foto questa ahajajkakakahaUIGEHOQWWD https://storage.coverr.co/videos/coverr-vehicles-on-the-highway-1567243769917?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjExNDMyN0NEOTRCMUFCMTFERTE3IiwiaWF0IjoxNTg2MTkxMTEyfQ.OGCvpVKOKzsT6IVJPBKRChe1la7rI9lG06B5eksixqY https://storage.coverr.co/videos/coverr-vehicles-on-the-highway-1567243769917?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjExNDMyN0NEOTRCMUFCMTFERTE3IiwiaWF0IjoxNTg2MTkxMTEyfQ.OGCvpVKOKzsT6IVJPBKRChe1la7rI9lG06B5eksixqY"))
-        objArray.append(VideoObject.init(videoUrl: "https://storage.coverr.co/videos/coverr-vehicles-on-the-highway-1567243769917?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjExNDMyN0NEOTRCMUFCMTFERTE3IiwiaWF0IjoxNTg2MTkxMTEyfQ.OGCvpVKOKzsT6IVJPBKRChe1la7rI9lG06B5eksixqY", description: "Qeusto video mi piace", videoFrameImage: nil))
+        objArray.append(VideoObject.init(videoUrl: "https://devstreaming-cdn.apple.com/videos/streaming/examples/bipbop_adv_example_hevc/master.m3u8",description:"che video di merda", videoFrameImage: nil))
         
-
         
-        objArray.append(VideogameObject.init(image: UIImage.init(named: "foto")!, description: "Questo gioco è fantastico!!"))
-       
         let testProfile = Profile.init(userOwner: User.init(name: "Simone", surname: "Scionti", age: 21), profileUsername: "Simonescionti", profileImage: UIImage.init(named: "profile")!)
+        
+        let videogame = VideogameObject.init(image: UIImage.init(named: "foto")!, description: "Questo gioco è fantastico!!")
+        
+        var comments = [Comment]()
+        var j = 0
+        while j<20{
+            comments.append(Comment.init(message: "Bellissimo videogioco !! JhcHBJZCI6IjExNDMyN0NEOTRCMUFCMTFERTE3IiwiaWF0IjoxNTg2MTkxMTEyfQ.OGCvpVKOKzsT6IVJPBKRChe1la7rI9lG06B5eksixqY https://storage.coverr.co/videos/coverr-vehicles-on-the-highway-1567243769917?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjExNDMyN0NEOTRCMUFCMTFERTE3IiwiaWF0IjoxNTg2MTkxMTEyfQ.OGCvpVKOKzsT6IVJPBKRChe1la7rI9lG06B5eksixqY", ownerProfile: testProfile))
+            j+=1
+        }
+        
+        videogame.insertComments(comments: comments)
+        
+        objArray.append(videogame)
+       
+        print(videogame.comments.count)
+       
         
         let testPassion = Passion.init(name: "Motori", color: UIColor.brown)
         
